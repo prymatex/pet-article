@@ -4,15 +4,15 @@ Prymatex
 .. class:: endnote
 
 +-------------------------------+-----------------------------------------------------------------+
-| .. image:: imagenes/me.jpg    |                                                                 |
-| .. image:: imagenes/die.jpg   | :Autor: Nahuel Defossé, Diego van Haaster                       |
+| .. image:: imagenes/nah.jpg    |                                                                 |
+| .. image:: imagenes/die.jpg   | :Autors: Nahuel Defossé, Diego van Haaster                      |
 |    :class: right foto         |                                                                 |
 |                               | :Bio:                                                           |
 |                               |     Mini biografia                                              |
 |                               |                                                                 |
 |                               | :Web: http://prymatex.org/blog                                  |
 |                               |                                                                 |
-|                               | :Email: nahuel.defosse@gmail.com diegomvh@gmail.com             |
+|                               | :Emails: nahuel.defosse@gmail.com diegomvh@gmail.com            |
 |                               |                                                                 |
 |                               | :Twitter: @D3f0 @diegomvh                                       |
 +-------------------------------+-----------------------------------------------------------------+
