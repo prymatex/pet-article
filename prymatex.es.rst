@@ -35,16 +35,14 @@ varios recursos como:
   - comandos (compilar, usar herramientas externas, entre
     otras)
     
+  - macros (acciones pre grabadas)
+    
   - plantillas de archivos
   
   - preferencias de configuración
   
   - herramientas auxiliares (ej **support/bin**,
     **support/lib**)
-
-Las extensiones pueden también ser extendidas, por
-ejemplo, la extensión Django (Django.tmBundle) extiende
-a la de Python, o la de Rails a la de Ruby.
 
 Cada compnente del bundle está contenido en un formato
 de serialización XML de Apple, llamado *plist* y que 
@@ -53,7 +51,7 @@ en el siguiente fragmento de código corresponde
 al comando **Compile Single File to Tool**. 
 El contendio de un comando se encuentra en la clave **command** y
 como se puede observar, consiste en un script escrito en Ruby que 
-Prymatex ejecutará cuando  el usuario active el comando. 
+Prymatex ejecutará cuando el usuario active el comando. 
 Podemos observar otros detalles, como la clave **output**,
 que indica al editor que la salida del script será visualizada
 como tooltip.
@@ -181,13 +179,13 @@ de la clase, el docstring se adapta al nombre de la clase.
 
 No todos los snippets están disponibles todo el tiempo, 
 muchos están limitados a cierto *ambito* donde tienen 
-importancia. Por ejemplo, la dfinición de métodos
+importancia. Por ejemplo, la definición de métodos
 solo tiene relevancia dentro de una clase.
 
 Comandos
 ========
 
-Los comandos son scripts que se ejecutan con bash o
+Los comandos son scripts que se ejecutan en bash o
 cualquier otro intéprete definido en el shebang.
 
 Al igual que los snippets, algunos comandos
