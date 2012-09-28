@@ -5,7 +5,7 @@ Prymatex
 
 +-------------------------------+-----------------------------------------------------------------+
 | .. image:: imagenes/nah.jpg   |                                                                 |
-| .. image:: imagenes/die.jpg   | :Autores: Diego van Haaster, Nahuel Defossé                     |
+| .. image:: imagenes/die.jpg   | :Autores: Nahuel Defossé, Diego van Haaster                     |
 |    :class: right foto         |                                                                 |
 |                               | :Bio:                                                           |
 |                               |     Mini biografia                                              |
@@ -30,20 +30,16 @@ varios recursos como:
 
   - sintaxis
   
-  - snippets (trozos de códigos auto-insertables)
+  - comandos (compilar, usar herramientas externas, entre otras)
   
-  - comandos (compilar, usar herramientas externas, entre
-    otras)
+  - snippets (trozos de códigos auto-insertables)
     
   - macros (acciones pre grabadas)
-    
-  - plantillas de archivos
+
+  - plantillas de archivos y proyectos
   
   - preferencias de configuración
   
-  - herramientas auxiliares (ej **support/bin**,
-    **support/lib**)
-
 Cada compnente del bundle está contenido en un formato
 de serialización XML de Apple, llamado *plist* y que 
 desde Python 2.6 se puede leer como un diccionario. Por ejemplo, 
@@ -158,6 +154,37 @@ el *ambito* de la posición del cursor.
 .. [*] Prymatex intenta utilizar *re* por razones de velocidad, pero
         si falla la compilación, recurre a Ponyguruma.
 
+
+Comandos
+========
+
+Los comandos son scripts que se ejecutan en bash o
+cualquier otro intérprete definido en el shebang.
+
+Al igual que los snippets, algunos comandos
+están restringidos a cierto ámbito.
+
+Los comandos pueden tomar la entrada del documento,
+linea, caracter o ámbito y su salida puede ser
+remplazar el documento actual o la selección, 
+insertar la salida como snippet, mostrarse como
+tooltip, como HTML en el browser o crear un nuevo
+documento.
+
+A menudo los comandos neceistan parametros de usuario, 
+para esto existe una utilidad de comandos llamada
+tmDialog (por TextMate dialog) el cual fue preciso
+implementar para poder dar soporte a los comandos
+preexistentes. El diálogo es similar a Kdialog o zenity.
+
+Un comando que se repite en casi todos los bundles, 
+es Run y se ejecuta con la tecla Windows o Meta + R.
+La salida del comando se muestra en el browser. Es
+destacable que no se necesita guardar incluso en 
+leguajes compilaods como C o C++ (algo que no sorprende
+tanto en lenguajes interpretados).
+
+
 Snippets
 ========
 
@@ -182,48 +209,37 @@ muchos están limitados a cierto *ambito* donde tienen
 importancia. Por ejemplo, la definición de métodos
 solo tiene relevancia dentro de una clase.
 
-Comandos
-========
 
-Los comandos son scripts que se ejecutan en bash o
-cualquier otro intéprete definido en el shebang.
+.. code-block:: python
 
-Al igual que los snippets, algunos comandos
-están restringidos a cierto ámbito.
-
-Los comandos pueden tomar la entrada del documento,
-linea, caracter o ámbito y su salida puede ser
-remplazar el documento acutal o la selección, 
-insertar la salida como snippet, mostrarse como
-tooltip, como HTML en el browser o crear un nuevo
-documento.
-
-A menudo los comandos neceistan parametros de usuario, 
-para esto existe una utilidad de comandos llamada
-tmDialog (por TextMate dialog) el cual fue preciso
-implementar para poder dar soporte a los comandos
-preexistentes. El diálogo es similar a Kdialog o zenity.
-
-Un comando que se repite en casi todos los bundles, 
-es Run y se ejecuta con la tecla Windows o Meta + R.
-La salida del comando se muestra en el browser. Es
-destacable que no se necesita guardar incluso en 
-leguajes compilaods como C o C++ (algo que no sorprende
-tanto en lenguajes interpretados).
+    try:
+    	${1:pass}
+    except ${2:Exception}, ${3:e}:
+    	${4:raise $3}
+    finally:
+    	${5:pass}
 
 
-Preferencias y Macros
-=====================
+Proyectos
+=========
 
-Algunas preferencias que soporta TextMate
+Administración de varios proyectos, cada proyecto
+Mencionar los templates de proyectos y los bundles en los proyectos 
 
-Más allá de las características de TextMate
-===========================================
 
-Dependencias
-------------
+Edición
+=======
 
-    - PyQt4 4.8
-    - python-pyzmq
-    - ponyguruma
-    
+* Autocompletado y macros
+* Multicursor
+
+
+Instalación
+-----------
+
+.. code-block:: bash
+
+    $ sudo apt-get install python python-dev python-qt4 cmake git
+    $ sudo apt-get install x11-xserver-utils ipython python-zmq libonig-dev
+
+Poner comandos de instalacion resumidos
