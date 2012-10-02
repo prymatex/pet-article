@@ -75,12 +75,12 @@ En el siguiente fragmento corresponde al plist del comando
 
 El script que ejecutara Prymatex se encuentra en la clave **command** y
 como se puede observar, consiste en un script escrito en Bash.
-El contexto de ejecucion del script esta definido por el resto de las claves,
+El contexto de ejecución del script esta definido por el resto de las claves,
 al pulsar las teclas **keyEquivalent** se toma la entrada **input**
-para posteriormente ejecutar el script y dirigir la salida a **output*.
+para posteriormente ejecutar el script y dirigir la salida a **output**.
 
 
-Si bien este comado está escrito en Bash, los scripts se pueden 
+Si bien este comando está escrito en Bash, los scripts se pueden 
 escribir en cualquier lenguaje que soporte leer y escribir la entrada estandard,
 interactuar con las variables de ambiente y retornar un código de salida entero.
 Debido a estos requirimientos mínimos, encontramos Bundles con comandos en
@@ -107,12 +107,12 @@ Los elementos que componen a un Bundle extienden la funcionalidad del editor
 significativamente, las sintaxis incorporan la metadata al texto tipeado y 
 los comandos, snippets y macros definen las posibles acciones a ejecutar cuando
 se reunen las condiciones adecuadas. Estas condiciones estan dadas por un 
-*ambito*, *un atajo de teclado*, *la tecla de tabulación* o la combinacion de
+*ámbito*, *un atajo de teclado*, *la tecla de tabulación* o la combinacion de
 varias.
 
 
 Todos los elementos que componen a un Bundle terminan siendo encapsulados en
-archivos *plist*, estos pueden almacenarce en distintas ubicaciones dando lugar
+archivos *plist*, estos pueden almacenarse en distintas ubicaciones dando lugar
 a los espacios de nombres.
 
 
@@ -123,10 +123,10 @@ Los archivos de sintaxis definen principalmente la gramática del lenguaje.
 
 
 Las gramáticas que se expresan en los archivos de sintaxis asocian a cada
-palabra o símbolo analizado, con un ambito o *scope*. A medida que el usuario
+palabra o símbolo analizado, con un ámbito o *scope*. A medida que el usuario
 escribe en el editor, el resaltador de sintaxis asigna a cada caracter un *scope*.
 El *scope* es la *piedra angular* del editor y en base a él se definen muchas de
-las posteriores acciones (comandos, snippets, macros), como asi tambien el
+las posteriores acciones (comandos, snippets, macros), como así también el
 típico coloreado de cualquier editor de texto para programadores.
 
 .. image:: imagenes/themes.png
@@ -154,7 +154,7 @@ hacia el editor (insertar, remplazar, mostrar en el browser, etc).
 Un comando que se repite en casi todos los bundles, es Run y se ejecuta con la
 tecla Windows o Meta + R. La salida del comando generalmente se muestra en el
 browser integrado. Es destacable que no se necesita guardar incluso en 
-leguajes compilaods como C o C++.
+lenguajes compilados como C o C++.
 
 
 Snippets
@@ -195,8 +195,8 @@ el proyecto.
 .. image:: imagenes/project.png
 
 Los proyectos no solo sirven como organización lógica del espacio de trabajo
-sino que tambien definen en sí mismos un espacio de nombres; esto provee la
-posibilidad de generar Bundles dentro del poryecto y por lo tanto hablita a la
+sino que también definen en sí mismos un espacio de nombres; esto provee la
+posibilidad de generar Bundles dentro del proyecto y por lo tanto hablita a la
 redistribución para homogeneizar las tareas del grupo. En el menú contextual de
 un proyecto se pueden generar asociaciones con Bundles permitiendo esto
 ejecutar acciones sobre los archivos que contiene.
@@ -210,14 +210,14 @@ iniciar un nuevo proyecto.
 Edición
 *******
 
-Prymatex incorpora varias herramientas para agilizar el tipeo de codigo, buena 
-parte de ellas estan dadas por los macros o regidas por las preferencias de 
+Prymatex incorpora varias herramientas para agilizar el tipeo de código, buena 
+parte de ellas están dadas por los macros o regidas por las preferencias de 
 cada Bundle, y como tal se aplican segun su *scope*.
 
 
 El autocompletado básico del editor esta basado en las palabras tipeadas y
-analizadas aunque igualmente provee una api para hacer llegar al sistema de
-autocompletado sugerencias que ingresen de la ejecucion de comandos.
+analizadas aunque igualmente provee una API para hacer llegar al sistema de
+autocompletado sugerencias que ingresen de la ejecución de comandos.
 
 Un aspecto que llama generalmente la atención es el modo multicursor, Prymatex
 activa este modo al seleccionar con el puntero zonas de código o mediante la
