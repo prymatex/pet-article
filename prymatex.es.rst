@@ -1,5 +1,5 @@
 Prymatex
-=================
+========
 
 .. class:: endnote
 
@@ -96,28 +96,31 @@ editor que más lenguajes soporta.
 
 
 Anatomía de un Bundle
----------------------
+*********************
 
-Analicemos con algo de detalle los componentes de una Bundle para comprender la
-capacidad de Prymatex como editor de textos para programadores o usuarios con 
-necesidades de un editor extensible.
+Analicemos con algo de detalle los componentes destacados de un Bundle para
+comprender la capacidad de Prymatex como editor de textos para programadores
+o usuarios con necesidades de un editor extensible.
 
-Al igual que los snippets y macros los comandos se ejecutan bajo determinandas
-condiciones; estas condiciones en conjunto con el script correspondiente se
-traducen en un archivo *plist* como el ya visto.
 
-No todos los snippets están disponibles todo el tiempo, 
-muchos están limitados a cierto *ambito* donde tienen 
-importancia. Por ejemplo, la definición de métodos
-solo tiene relevancia dentro de una clase.
+Los elementos que componen a un Bundle extienden la funcionalidad del editor
+significativamente, las sintaxis incorporan la metadata al texto tipeado y 
+los comandos, snippets y macros definen las posibles acciones a ejecutar cuando
+se reunen las condiciones adecuadas. Estas condiciones estan dadas por un 
+*ambito*, *un atajo de teclado*, *la tecla de tabulación* o la combinacion de
+varias.
 
-que están disponibles bajo algún atajo de teclado o activación con
-la tecla tabulación. Suelen 
+
+Todos los elementos que componen a un Bundle terminan siendo encapsulados en
+archivos *plist*, estos pueden almacenarce en distintas ubicaciones dando lugar
+a los espacios de nombres.
 
 
 Sintaxis
-========
+--------
+
 Los archivos de sintaxis definen principalmente la gramática del lenguaje.
+
 
 Las gramáticas que se expresan en los archivos de sintaxis asocian a cada
 palabra o símbolo analizado, con un ambito o *scope*. A medida que el usuario
@@ -135,12 +138,13 @@ no son 100% compatibles con las del módulo nativo de python, **re**. [*]_
 Esta "no compatibilidad" se superó con *Ponyguruma*, un binding para oniguruma
 desarrollado por Pocoo (autores de Flask, Jinja2, Pygments o Sphinx).
 
+
 .. [*] Prymatex intenta utilizar *re* por razones de velocidad, pero
         si falla la compilación, recurre a Ponyguruma.
 
 
 Comandos
-========
+--------
 
 Los comandos son acciones que pueden tomar datos del editor (documento, linea,
 caracter, etc) y luego de ejecutar un script redirigir la salida nuevamente
@@ -154,7 +158,7 @@ leguajes compilaods como C o C++.
 
 
 Snippets
-========
+--------
 
 Los snippets son pequeñas fracciones de texto que se utilizan para alivianar la
 inserción de código repetitivo. 
@@ -178,7 +182,7 @@ modificar los holders definidos.
 
 
 Proyectos
-=========
+*********
 
 .. Administración de varios proyectos, cada proyecto
 .. Mencionar los templates de proyectos y los bundles en los proyectos 
@@ -191,30 +195,31 @@ el proyecto.
 .. image:: imagenes/project.png
 
 Dentro del menú contextual del proyecto se pueden generar asociaciones
-de Bundles al proyecto. Una asociación provoca la copia a el directorio
-de meta información del poryecto y por lo tanto hablita a la redistribución
-para homogeneizar las tareas del grupo.
+del mismo con Bundles permitiendo esto ejecutar acciones sobre los archivos.
+Por otra parte Prymatex tambien provee la posibilidad de generar Bundles dentro
+del poryecto y por lo tanto hablita a la redistribución para homogeneizar las
+tareas del grupo.
 
 Los proyectos sirven no solo como organización lógica del espacio de trabajo,
 como punto de partida para realizar búsquedas o ejecutar comandos, sino para proveer 
 
-Dentro de las características de los Bundles de TextMate implementadas
-en Prymatex aparecen los templates de archivos que hacen uso de las 
-bondades de Ponyguruma para definir plantillas inteligentes.
-
+Pretendiendo extender las características de los Bundles de TextMate, Prymatex
+define plantillas de proyectos, de una forma similar a las plantillas de
+archivos, estas ayudan en la generación de codigó boilerplate que existe al
+iniciar un nuevo proyecto.
 
 Edición
-=======
+*******
 
 * Autocompletado y macros
 * Multicursor
 
 
 Instalación
-===========
+***********
 
 Dependencias
-************
+------------
 
 .. code-block:: bash
 
@@ -222,7 +227,7 @@ Dependencias
     $ sudo apt-get install x11-xserver-utils ipython python-zmq libonig-dev
     
 Ponyguruma
-**********
+----------
 
 .. code-block:: bash
 
@@ -232,7 +237,7 @@ Ponyguruma
     $ sudo python setup.py install
     
 QTermWidget
-***********
+-----------
 
 .. code-block:: bash
 
@@ -247,7 +252,7 @@ QTermWidget
     $ sudo make install
 
 Prymatex (sources)
-******************
+------------------
 
 .. code-block:: bash
 
