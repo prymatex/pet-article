@@ -102,6 +102,19 @@ Analicemos con algo de detalle los componentes de una Bundle para comprender la
 capacidad de Prymatex como editor de textos para programadores o usuarios con 
 necesidades de un editor extensible.
 
+Al igual que los snippets y macros los comandos se ejecutan bajo determinandas
+condiciones; estas condiciones en conjunto con el script correspondiente se
+traducen en un archivo *plist* como el ya visto.
+
+No todos los snippets están disponibles todo el tiempo, 
+muchos están limitados a cierto *ambito* donde tienen 
+importancia. Por ejemplo, la definición de métodos
+solo tiene relevancia dentro de una clase.
+
+que están disponibles bajo algún atajo de teclado o activación con
+la tecla tabulación. Suelen 
+
+
 Sintaxis
 ========
 Los archivos de sintaxis definen principalmente la gramática del lenguaje.
@@ -133,9 +146,6 @@ Los comandos son acciones que pueden tomar datos del editor (documento, linea,
 caracter, etc) y luego de ejecutar un script redirigir la salida nuevamente
 hacia el editor (insertar, remplazar, mostrar en el browser, etc). 
 
-Al igual que los snippets y macros los comandos se ejecutan bajo determinandas
-condiciones; estas condiciones en conjunto con el script correspondiente se
-traducen en un archivo *plist* como el ya visto.
 
 Un comando que se repite en casi todos los bundles, es Run y se ejecuta con la
 tecla Windows o Meta + R. La salida del comando generalmente se muestra en el
@@ -146,27 +156,16 @@ leguajes compilaods como C o C++.
 Snippets
 ========
 
-Los snippets son pequeñas fracciones de texto que están
-disponibles bajo algún atajo de teclado o activación con
-la tecla tabulación. Suelen alivianar la inserción de código
-repetitivo.
+Los snippets son pequeñas fracciones de texto que se utilizan para alivianar la
+inserción de código repetitivo. 
 
-En Prymatex están definidos como expresiones
-regulares con varios *"huecos"* o *holders*. Estos se van
-alternando cuando el usuario presiona la tecla tabulación.
-Por ejemplo, bajo la sintaxis de Python, tras tipear *def* o
-*class* y presionar la tecla de tabluación, se inserta la
-definición de una función, o clase. Con cada tabulación
-el usuario puede agregar el nombre, el *docstring*, los
-atributos, etc. Al llenar cada hueco, pueden haber huecos
-*dependientes*, por ejemplo, al ir definiendo el nombre
-de la clase, el docstring se adapta al nombre de la clase.
 
-No todos los snippets están disponibles todo el tiempo, 
-muchos están limitados a cierto *ambito* donde tienen 
-importancia. Por ejemplo, la definición de métodos
-solo tiene relevancia dentro de una clase.
-
+Están definidos como texto, expresiones regulares y *"huecos"* o *holders*, 
+estos últimos representan los lugares variables a completar por el usuario
+y son novegables mediante la tecla de tabulación. Por ejemplo, bajo la sintaxis
+de Python, tras tipear *try* y presionar la tecla de tabluación, se inserta la
+definición de un bloque try/except y con cada tabulación el usuario puede
+modificar los holders definidos.
 
 .. code-block:: python
 
@@ -212,11 +211,46 @@ Edición
 
 
 Instalación
------------
+===========
+
+Dependencias
+************
 
 .. code-block:: bash
 
     $ sudo apt-get install python python-dev python-qt4 cmake git
     $ sudo apt-get install x11-xserver-utils ipython python-zmq libonig-dev
+    
+Ponyguruma
+**********
 
-Poner comandos de instalacion resumidos
+.. code-block:: bash
+
+    $ git clone https://github.com/prymatex/ponyguruma.git
+    $ cd ponyguruma
+    $ python setup.py build
+    $ sudo python setup.py install
+    
+QTermWidget
+***********
+
+.. code-block:: bash
+
+    $ git clone https://github.com/prymatex/qtermwidget.git
+    $ cd qtermwidget
+    $ cmake .
+    $ make
+    $ sudo make install
+    $ cd pyqt4
+    $ python config.py
+    $ make 
+    $ sudo make install
+
+Prymatex (sources)
+******************
+
+.. code-block:: bash
+
+    $ git clone https://github.com/prymatex/prymatex.git
+    $ cd prymatex/prymatex/bin/
+    $ python pmx.py
