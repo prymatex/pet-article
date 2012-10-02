@@ -18,15 +18,13 @@ Prymatex
 +-------------------------------+-----------------------------------------------------------------+
 
 
-Prymatex es un proyecto de creación de un editor de texto
-multiplataforma basado en el popular TextMate de Mac.
+Prymatex es un editor de texto multiplataforma basado en el popular TextMate de Mac.
 Al igual que éste, se compone de un editor minimalista extensible,
 y cuenta con una gran cantidad de extensiones que le brindan funcionalidad específica
 para muchos lenguajes y herramientas.
 
 
-Cada extensión se denomina Bundle y puede contener 
-varios recursos como:
+Cada extensión se denomina Bundle y puede contener varios recursos como:
 
   - sintaxis
   
@@ -39,69 +37,55 @@ varios recursos como:
   - plantillas de archivos y proyectos
   
   - preferencias de configuración
-  
-Cada compnente del bundle está contenido en un formato
-de serialización XML de Apple, llamado *plist* y que 
-desde Python 2.6 se puede leer como un diccionario. Por ejemplo, 
-en el siguiente fragmento de código corresponde 
-al comando **Compile Single File to Tool**. 
-El contendio de un comando se encuentra en la clave **command** y
-como se puede observar, consiste en un script escrito en Ruby que 
-Prymatex ejecutará cuando el usuario active el comando. 
-Podemos observar otros detalles, como la clave **output**,
-que indica al editor que la salida del script será visualizada
-como tooltip.
 
+Cada componente de un bundle está contenido en un formato de serialización XML
+de Apple, llamado *plist* y que desde Python 2.6 se puede leer como un diccionario.
+ 
+En el siguiente fragmento corresponde al plist del comando
+**Documentation in Browser** del bundle **Python**.
 
 .. code-block:: XML
 
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
     <dict>
-    <key>beforeRunningCommand</key>
-    <string>nop</string>
-    <key>command</key>
-    <string>#!/usr/bin/env ruby
-    #
-    # Compile the active file to an executable.
-    # Executable name is prefixed with "Test".
-
-    require 'English'
-
-    FilePath		= ENV['TM_FILEPATH']
-    FileDir		= ENV['TM_DIRECTORY']
-    FileBaseName	= File.basename(FilePath)
-    FileExtension	= File.extname(FilePath)
-    FileNoExtension = FileBaseName.sub(/#{FileExtension}$/, "")
-
-    Dir.chdir(ENV['TM_DIRECTORY'])
-
-    # have to use g++ to bring in C++ runtime libraries
-    cc = case FileExtension
-    when /\.c(pp?|xx|\+\+)/,'.C','.ii'
-         'g++'
-    else
-         'gcc'
-    end
-
-    puts %x{ "#{cc}" -g -Wmost -Os -o "Test#{FileNoExtension}" "$TM_FILEPATH"}
-
-    puts "Successfully created Test#{FileNoExtension}" unless $CHILD_STATUS != 0
-    </string>
-    <key>input</key>
-    <string>none</string>
-    <key>keyEquivalent</key>
-    <string></string>
-    <key>name</key>
-    <string>Compile Single File to Tool</string>
-    <key>output</key>
-    <string>showAsTooltip</string>
+    	<key>beforeRunningCommand</key>
+    	<string>nop</string>
+    	<key>command</key>
+    	<string>TPY=${TM_PYTHON:-python}
     
-Si bien este comado está escrito en Ruby como casi la gran mayoría,
-estos se pueden escribir en cualquier lenguaje que soporte leer y 
-escribir la entrada estandard, interactuar con las variables de ambiente
-y retornar un código de salida entero. Debido a estos requirimientos mínimos,
-encontramos Bundles con comandos en escritos en shell, Perl, PHP, Python, 
-awk, entre otros. Todo está limitado a lo que el usuario quiera 
-poner en el shebang.
+    echo '&lt;html&gt;&lt;body&gt;'
+    "$TPY" "${TM_BUNDLE_SUPPORT}/browse_pydocs.py"
+    echo '&lt;/body&gt;&lt;/html&gt;'</string>
+    	<key>input</key>
+    	<string>none</string>
+    	<key>keyEquivalent</key>
+    	<string>^H</string>
+    	<key>name</key>
+    	<string>Documentation in Browser</string>
+    	<key>output</key>
+    	<string>showAsHTML</string>
+    	<key>scope</key>
+    	<string>source.python</string>
+    	<key>uuid</key>
+    	<string>095E8342-FAED-4B95-A229-E245B0B601A7</string>
+    </dict>
+    </plist>
+
+El script que ejecutara Prymatex se encuentra en la clave **command** y
+como se puede observar, consiste en un script escrito en Bash.
+El contexto de ejecucion del script esta definido por el resto de las claves,
+al pulsar las teclas **keyEquivalent** se toma la entrada **input**
+para posteriormente ejecutar el script y dirigir la salida a **output*.
+
+
+Si bien este comado está escrito en Bash, los scripts se pueden 
+escribir en cualquier lenguaje que soporte leer y escribir la entrada estandard,
+interactuar con las variables de ambiente y retornar un código de salida entero.
+Debido a estos requirimientos mínimos, encontramos Bundles con comandos en
+escritos en Ruby, Bash, Perl, PHP, Python, awk, entre otros. Todo está limitado
+a lo que el usuario quiera poner en el shebang.
 
 
 Esta forma sencilla de extender el editor a dotado a TextMate de 
@@ -114,42 +98,29 @@ editor que más lenguajes soporta.
 Anatomía de un Bundle
 ---------------------
 
-Analicemos con algo de detalle los componentes de una
-Bundle para comprender la capacidad de Prymatex como
-editor de textos para programadores o usuarios con 
+Analicemos con algo de detalle los componentes de una Bundle para comprender la
+capacidad de Prymatex como editor de textos para programadores o usuarios con 
 necesidades de un editor extensible.
 
 Sintaxis
 ========
-Los archivos de sintaxis definen la gramática del lenguaje y
-las extensiones de archivo que soporta y 
-una expresion regular llamada **firstLineMatch** que sirve
-para identificar archivos sin extensión a partir de su primera
-linea de texto.
+Los archivos de sintaxis definen principalmente la gramática del lenguaje.
 
-Las gramáticas que se expresan en los archivos de sintaxis
-asocian a cada palabra o símbolo del archvivo, con un *ambito*
-(o scope). A medida que el usuario escribe en el editor, 
-el resaltador de sintaxis asigna a cada letra un *ambito*.
-Además de la sintaxis, existe en forma global una tema que 
-relaciona *ambitos* con estilos de fuentes con el cual se 
-completa el coloreado típico de cualquier editor de texto
-para programadores.
+Las gramáticas que se expresan en los archivos de sintaxis asocian a cada
+palabra o símbolo analizado, con un ambito o *scope*. A medida que el usuario
+escribe en el editor, el resaltador de sintaxis asigna a cada caracter un *scope*.
+El *scope* es la *piedra angular* del editor y en base a él se definen muchas de
+las posteriores acciones (comandos, snippets, macros), como asi tambien el
+típico coloreado de cualquier editor de texto para programadores.
 
 .. image:: imagenes/themes.png
   :scale: 40%
 
 
-Las gramáticas están expresadas con expresiones regulares 
-para el motor Oniguruma que no son 100% compatibles con las
-del módulo nativo de python, **re**. [*]_ Afortunadamente encontramos
-en Pocoo (autores de módulos muy famosos como Flask, Jinja2, Pygments
-o Sphinx) un binding llamado *Ponyguruma* que nos permitió
-compatiblizar a Prymatex con TextMate.
-
-Cada archivo abierto está resaltado por alguna sintaxis, aún
-cuando el archvivo no esté guardado. Esto permite siempre determinar
-el *ambito* de la posición del cursor. 
+Una gramática se define mediante expresiones regulares en Oniguruma las cuales
+no son 100% compatibles con las del módulo nativo de python, **re**. [*]_
+Esta "no compatibilidad" se superó con *Ponyguruma*, un binding para oniguruma
+desarrollado por Pocoo (autores de Flask, Jinja2, Pygments o Sphinx).
 
 .. [*] Prymatex intenta utilizar *re* por razones de velocidad, pero
         si falla la compilación, recurre a Ponyguruma.
@@ -158,31 +129,18 @@ el *ambito* de la posición del cursor.
 Comandos
 ========
 
-Los comandos son scripts que se ejecutan en bash o
-cualquier otro intérprete definido en el shebang.
+Los comandos son acciones que pueden tomar datos del editor (documento, linea,
+caracter, etc) y luego de ejecutar un script redirigir la salida nuevamente
+hacia el editor (insertar, remplazar, mostrar en el browser, etc). 
 
-Al igual que los snippets, algunos comandos
-están restringidos a cierto ámbito.
+Al igual que los snippets y macros los comandos se ejecutan bajo determinandas
+condiciones; estas condiciones en conjunto con el script correspondiente se
+traducen en un archivo *plist* como el ya visto.
 
-Los comandos pueden tomar la entrada del documento,
-linea, caracter o ámbito y su salida puede ser
-remplazar el documento actual o la selección, 
-insertar la salida como snippet, mostrarse como
-tooltip, como HTML en el browser o crear un nuevo
-documento.
-
-A menudo los comandos neceistan parametros de usuario, 
-para esto existe una utilidad de comandos llamada
-tmDialog (por TextMate dialog) el cual fue preciso
-implementar para poder dar soporte a los comandos
-preexistentes. El diálogo es similar a Kdialog o zenity.
-
-Un comando que se repite en casi todos los bundles, 
-es Run y se ejecuta con la tecla Windows o Meta + R.
-La salida del comando se muestra en el browser. Es
-destacable que no se necesita guardar incluso en 
-leguajes compilaods como C o C++ (algo que no sorprende
-tanto en lenguajes interpretados).
+Un comando que se repite en casi todos los bundles, es Run y se ejecuta con la
+tecla Windows o Meta + R. La salida del comando generalmente se muestra en el
+browser integrado. Es destacable que no se necesita guardar incluso en 
+leguajes compilaods como C o C++.
 
 
 Snippets
