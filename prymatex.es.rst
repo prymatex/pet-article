@@ -194,14 +194,13 @@ el proyecto.
 
 .. image:: imagenes/project.png
 
-Dentro del menú contextual del proyecto se pueden generar asociaciones
-del mismo con Bundles permitiendo esto ejecutar acciones sobre los archivos.
-Por otra parte Prymatex tambien provee la posibilidad de generar Bundles dentro
-del poryecto y por lo tanto hablita a la redistribución para homogeneizar las
-tareas del grupo.
+Los proyectos no solo sirven como organización lógica del espacio de trabajo
+sino que tambien definen en sí mismos un espacio de nombres; esto provee la
+posibilidad de generar Bundles dentro del poryecto y por lo tanto hablita a la
+redistribución para homogeneizar las tareas del grupo. En el menú contextual de
+un proyecto se pueden generar asociaciones con Bundles permitiendo esto
+ejecutar acciones sobre los archivos que contiene.
 
-Los proyectos sirven no solo como organización lógica del espacio de trabajo,
-como punto de partida para realizar búsquedas o ejecutar comandos, sino para proveer 
 
 Pretendiendo extender las características de los Bundles de TextMate, Prymatex
 define plantillas de proyectos, de una forma similar a las plantillas de
@@ -211,8 +210,19 @@ iniciar un nuevo proyecto.
 Edición
 *******
 
-* Autocompletado y macros
-* Multicursor
+Prymatex incorpora varias herramientas para agilizar el tipeo de codigo, buena 
+parte de ellas estan dadas por los macros o regidas por las preferencias de 
+cada Bundle, y como tal se aplican segun su *scope*.
+
+
+El autocompletado básico del editor esta basado en las palabras tipeadas y
+analizadas aunque igualmente provee una api para hacer llegar al sistema de
+autocompletado sugerencias que ingresen de la ejecucion de comandos.
+
+Un aspecto que llama generalmente la atención es el modo multicursor, Prymatex
+activa este modo al seleccionar con el puntero zonas de código o mediante la
+pulsación de teclas especificas, posteriormente con el modo activo podemos 
+escribir en varios lugares del documento al mismo tiempo.
 
 
 Instalación
