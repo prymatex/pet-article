@@ -223,8 +223,27 @@ solo tiene relevancia dentro de una clase.
 Proyectos
 =========
 
-Administración de varios proyectos, cada proyecto
-Mencionar los templates de proyectos y los bundles en los proyectos 
+.. Administración de varios proyectos, cada proyecto
+.. Mencionar los templates de proyectos y los bundles en los proyectos 
+
+Prymatex provee un administrador de proyectos como un panel lateral que
+visualiza el contenido del sistema de archivos. Dentro de la carpeta del proyecto
+se genera un directorio oculto donde se almacena la meta información sobre 
+el proyecto.
+
+.. image:: imagenes/project.png
+
+Dentro del menú contextual del proyecto se pueden generar asociaciones
+de Bundles al proyecto. Una asociación provoca la copia a el directorio
+de meta información del poryecto y por lo tanto hablita a la redistribución
+para homogeneizar las tareas del grupo.
+
+Los proyectos sirven no solo como organización lógica del espacio de trabajo,
+como punto de partida para realizar búsquedas o ejecutar comandos, sino para proveer 
+
+Dentro de las características de los Bundles de TextMate implementadas
+en Prymatex aparecen los templates de archivos que hacen uso de las 
+bondades de Ponyguruma para definir plantillas inteligentes.
 
 
 Edición
