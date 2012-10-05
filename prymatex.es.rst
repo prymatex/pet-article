@@ -4,9 +4,9 @@ Prymatex
 .. class:: endnote
 
 +-------------------------------+-----------------------------------------------------------------+
-| .. image:: imagenes/nah.jpg   |                                                                 |
-| .. image:: imagenes/die.jpg   | :Autores: Nahuel Defossé, Diego van Haaster                     |
-|    :class: right foto         |                                                                 |
+| .. image:: imagenes/nahdie.jpg|                                                                 |
+|    :class: center foto        | :Autores: Nahuel Defossé, Diego van Haaster                     |
+|                               |                                                                 |
 |                               | :Bio:                                                           |
 |                               |     Mini biografia                                              |
 |                               |                                                                 |
@@ -115,6 +115,8 @@ Todos los elementos que componen a un Bundle terminan siendo encapsulados en
 archivos *plist*, estos pueden almacenarse en distintas ubicaciones dando lugar
 a los espacios de nombres.
 
+.. image:: imagenes/bundle.png
+  :scale: 40%
 
 Sintaxis
 --------
@@ -192,8 +194,6 @@ visualiza el contenido del sistema de archivos. Dentro de la carpeta del proyect
 se genera un directorio oculto donde se almacena la meta información sobre 
 el proyecto.
 
-.. image:: imagenes/project.png
-
 Los proyectos no solo sirven como organización lógica del espacio de trabajo
 sino que también definen en sí mismos un espacio de nombres; esto provee la
 posibilidad de generar Bundles dentro del proyecto y por lo tanto hablita a la
@@ -206,6 +206,7 @@ Pretendiendo extender las características de los Bundles de TextMate, Prymatex
 define plantillas de proyectos, de una forma similar a las plantillas de
 archivos, estas ayudan en la generación de codigó boilerplate que existe al
 iniciar un nuevo proyecto.
+
 
 Edición
 *******
@@ -224,6 +225,7 @@ activa este modo al seleccionar con el puntero zonas de código o mediante la
 pulsación de teclas especificas, posteriormente con el modo activo podemos 
 escribir en varios lugares del documento al mismo tiempo.
 
+.. image:: imagenes/main.png
 
 Instalación
 ***********
