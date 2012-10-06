@@ -358,7 +358,7 @@ endobj
 % 'R25': class PDFInfo 
 25 0 obj
 << /Author ()
- /CreationDate (D:20121005205552+03'00')
+ /CreationDate (D:20121005210349+03'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
@@ -964,7 +964,7 @@ endobj
 % 'R41': class PDFStream 
 41 0 obj
 % page stream
-<< /Length 6382 >>
+<< /Length 6386 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -1009,7 +1009,7 @@ Q
 q
 1 0 0 1 62.69291 489.0236 cm
 q
-BT 1 0 0 1 0 38 Tm 1.267674 Tw 12 TL /F1 10 Tf 0 0 0 rg (Est\341n definidos como texto, expresiones regulares y ) Tj /F3 10 Tf ("huecos" ) Tj /F1 10 Tf (o ) Tj /F3 10 Tf (holders) Tj /F1 10 Tf (, estos \372ltimos representan los) Tj T* 0 Tw 2.238651 Tw (lugares variables a completar por el usuario y son novegables mediante la tecla de tabulaci\363n. Por) Tj T* 0 Tw 2.564104 Tw (ejemplo, bajo la sintaxis de Python, tras tipear ) Tj /F3 10 Tf (try ) Tj /F1 10 Tf (y presionar la tecla de tabluaci\363n, se inserta la) Tj T* 0 Tw (definici\363n de un bloque try/except y con cada tabulaci\363n el usuario puede modificar los holders definidos.) Tj T* ET
+BT 1 0 0 1 0 38 Tm 1.267674 Tw 12 TL /F1 10 Tf 0 0 0 rg (Est\341n definidos como texto, expresiones regulares y ) Tj /F3 10 Tf ("huecos" ) Tj /F1 10 Tf (o ) Tj /F3 10 Tf (holders) Tj /F1 10 Tf (, estos \372ltimos representan los) Tj T* 0 Tw 2.238651 Tw (lugares variables a completar por el usuario y son novegables mediante la tecla de tabulaci\363n. Por) Tj T* 0 Tw 2.564104 Tw (ejemplo, bajo la sintaxis de Python, tras tipear ) Tj /F3 10 Tf (try ) Tj /F1 10 Tf (y presionar la tecla de tabulaci\363n, se inserta la) Tj T* 0 Tw (definici\363n de un bloque try/except y con cada tabulaci\363n el usuario puede modificar los holders definidos.) Tj T* ET
 Q
 Q
 q
@@ -1049,14 +1049,14 @@ q
 1 0 0 1 62.69291 254.8236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL .829984 Tw (Los proyectos no solo sirven como organizaci\363n l\363gica del espacio de trabajo sino que tambi\351n definen) Tj T* 0 Tw .46561 Tw (en s\355 mismos un espacio de nombres; esto provee la posibilidad de generar Bundles dentro del proyecto) Tj T* 0 Tw .042765 Tw (y por lo tanto hablita a la redistribuci\363n para homogeneizar las tareas del grupo. En el men\372 contextual de) Tj T* 0 Tw .914597 Tw (un proyecto se pueden generar asociaciones con Bundles permitiendo esto ejecutar acciones sobre los) Tj T* 0 Tw (archivos que contiene.) Tj T* ET
+BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL .829984 Tw (Los proyectos no solo sirven como organizaci\363n l\363gica del espacio de trabajo sino que tambi\351n definen) Tj T* 0 Tw .46561 Tw (en s\355 mismos un espacio de nombres; esto provee la posibilidad de generar Bundles dentro del proyecto) Tj T* 0 Tw .732339 Tw (y por lo tanto habilita a la redistribuci\363n para homogeneizar las tareas del grupo. En el men\372 contextual) Tj T* 0 Tw 1.04229 Tw (de un proyecto se pueden generar asociaciones con Bundles permitiendo esto ejecutar acciones sobre) Tj T* 0 Tw (los archivos que contiene.) Tj T* ET
 Q
 Q
 q
 1 0 0 1 62.69291 212.8236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 2.14998 Tw (Pretendiendo extender las caracter\355sticas de los Bundles de TextMate, Prymatex define plantillas de) Tj T* 0 Tw 1.438735 Tw (proyectos, de una forma similar a las plantillas de archivos, estas ayudan en la generaci\363n de codig\363) Tj T* 0 Tw (boilerplate que existe al iniciar un nuevo proyecto.) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 2.14998 Tw (Pretendiendo extender las caracter\355sticas de los Bundles de TextMate, Prymatex define plantillas de) Tj T* 0 Tw 1.438735 Tw (proyectos, de una forma similar a las plantillas de archivos, estas ayudan en la generaci\363n de c\363digo) Tj T* 0 Tw (boilerplate que existe al iniciar un nuevo proyecto.) Tj T* ET
 Q
 Q
 q
@@ -1068,7 +1068,7 @@ Q
 q
 1 0 0 1 62.69291 149.8236 cm
 q
-BT 1 0 0 1 0 14 Tm .052651 Tw 12 TL /F1 10 Tf 0 0 0 rg (Prymatex incorpora varias herramientas para agilizar el tipeo de c\363digo, buena parte de ellas est\341n dadas) Tj T* 0 Tw (por los macros o regidas por las preferencias de cada Bundle, y como tal se aplican segun su ) Tj /F3 10 Tf (scope) Tj /F1 10 Tf (.) Tj T* ET
+BT 1 0 0 1 0 14 Tm .052651 Tw 12 TL /F1 10 Tf 0 0 0 rg (Prymatex incorpora varias herramientas para agilizar el tipeo de c\363digo, buena parte de ellas est\341n dadas) Tj T* 0 Tw (por los macros o regidas por las preferencias de cada Bundle, y como tal se aplican seg\372n su ) Tj /F3 10 Tf (scope) Tj /F1 10 Tf (.) Tj T* ET
 Q
 Q
 q
@@ -1344,22 +1344,22 @@ xref
 0000422859 00000 n
 0000433616 00000 n
 0000437318 00000 n
-0000443799 00000 n
-0000446617 00000 n
-0000447915 00000 n
-0000448060 00000 n
-0000448137 00000 n
-0000448214 00000 n
-0000448291 00000 n
-0000448368 00000 n
+0000443803 00000 n
+0000446621 00000 n
+0000447919 00000 n
+0000448064 00000 n
+0000448141 00000 n
+0000448218 00000 n
+0000448295 00000 n
+0000448372 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\3666v'\360\357\026TQ\366\307rQ#v{) (\3666v'\360\357\026TQ\366\307rQ#v{)] 
+ [(\270\317\274\243_\206\316l\232N\331\270E3\240\324) (\270\317\274\243_\206\316l\232N\331\270E3\240\324)] 
 
  /Info 25 0 R
  /Root 24 0 R
  /Size 50 >>
 startxref
-448415
+448419
 %%EOF

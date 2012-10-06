@@ -169,7 +169,7 @@ inserción de código repetitivo.
 Están definidos como texto, expresiones regulares y *"huecos"* o *holders*, 
 estos últimos representan los lugares variables a completar por el usuario
 y son novegables mediante la tecla de tabulación. Por ejemplo, bajo la sintaxis
-de Python, tras tipear *try* y presionar la tecla de tabluación, se inserta la
+de Python, tras tipear *try* y presionar la tecla de tabulación, se inserta la
 definición de un bloque try/except y con cada tabulación el usuario puede
 modificar los holders definidos.
 
@@ -196,7 +196,7 @@ el proyecto.
 
 Los proyectos no solo sirven como organización lógica del espacio de trabajo
 sino que también definen en sí mismos un espacio de nombres; esto provee la
-posibilidad de generar Bundles dentro del proyecto y por lo tanto hablita a la
+posibilidad de generar Bundles dentro del proyecto y por lo tanto habilita a la
 redistribución para homogeneizar las tareas del grupo. En el menú contextual de
 un proyecto se pueden generar asociaciones con Bundles permitiendo esto
 ejecutar acciones sobre los archivos que contiene.
@@ -204,7 +204,7 @@ ejecutar acciones sobre los archivos que contiene.
 
 Pretendiendo extender las características de los Bundles de TextMate, Prymatex
 define plantillas de proyectos, de una forma similar a las plantillas de
-archivos, estas ayudan en la generación de codigó boilerplate que existe al
+archivos, estas ayudan en la generación de código boilerplate que existe al
 iniciar un nuevo proyecto.
 
 
@@ -213,7 +213,7 @@ Edición
 
 Prymatex incorpora varias herramientas para agilizar el tipeo de código, buena 
 parte de ellas están dadas por los macros o regidas por las preferencias de 
-cada Bundle, y como tal se aplican segun su *scope*.
+cada Bundle, y como tal se aplican según su *scope*.
 
 
 El autocompletado básico del editor esta basado en las palabras tipeadas y
